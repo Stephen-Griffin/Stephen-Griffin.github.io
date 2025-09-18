@@ -2,7 +2,7 @@ import './App.css'
 import SplitText from './components/SplitText'
 import Dock from './components/Dock';
 import { IoIosHome } from "react-icons/io";
-import { FaDatabase } from "react-icons/fa";
+import { FaDatabase, FaUserCircle } from "react-icons/fa";
 
 
 const handleAnimationComplete = () => {
@@ -11,6 +11,7 @@ const handleAnimationComplete = () => {
 
 const items = [
     { icon: <IoIosHome size={18} />, label: 'Home', onClick: () => window.scrollTo({ top: 0, behavior: 'smooth' }) },
+    { icon: <FaUserCircle size={18} />, label: 'Contributions', onClick: () => document.getElementById('contributions')?.scrollIntoView({ behavior: 'smooth', block: 'start' }) },
     { icon: <FaDatabase size={18} />, label: 'Data', onClick: () => document.getElementById('data')?.scrollIntoView({ behavior: 'smooth', block: 'start' }) },
 ];
 
@@ -42,12 +43,20 @@ function App() {
             </section>
 
             {/* Below section with slightly different color */}
+            <section id="contributions" className="min-h-screen flex items-center justify-center bg-neutral-900 text-gray-100 pb-32">
+                <div className="max-w-3xl px-6 text-center">
+                    <h2 className="text-3xl font-semibold mb-4">Contributions</h2>
+                    <p className="text-gray-300">
+                        This is the contributions section
+                    </p>
+                </div>
+            </section>
+
             <section id="data" className="min-h-screen flex items-center justify-center bg-neutral-900 text-gray-100 pb-32">
                 <div className="max-w-3xl px-6 text-center">
-                    <h2 className="text-3xl font-semibold mb-4">Explore the Data</h2>
+                    <h2 className="text-3xl font-semibold mb-4">Data</h2>
                     <p className="text-gray-300">
-                        This section sits below the intro and uses a slightly different background.
-                        Add your content here — charts, tables, or explanations.
+                        This is the Data section
                     </p>
                 </div>
             </section>
